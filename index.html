@@ -1,49 +1,412 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+	<title>Moviendo la Web</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<style>
+		.comparison {
+			display: flex;
+			justify-content: center;
+		}
+
+		.comparison img {
+			width: 350px;
+		}
+
+		figcaption {
+			font-size: 0.6em;
+		}
+
+		h3 {
+			color: rgb(73, 73, 73) !important;
+		}
+
+		.zdog {
+			height: 300px;
+		}
+
+		.zdog canvas {
+			height: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!-- INTRO -->
+			<section>
+				<h2>Moviendo la Web</h2>
+
+				<div class="zdog">
+					<canvas></canvas>
+				</div>
+
+				<p style="font-size: 0.5em; text-transform: uppercase; color: rgb(73, 73, 73);">Gabriel Longás</p>
+			</section>
+
+			<!-- HTML + CSS + JS -->
+			<section>
+				<section>
+					<h2>WEB 101</h2>
+					<h3>HTML + CSS + JS</h3>
+				</section>
+
+				<section>
+					<h2>HTML</h2>
+					<pre><code class="html" data-trim>
+						<article>
+							<h2 class="title">Title</h2>
+							<img src="/img/post-header.svg" alt="Header">
+							<p>Lorem ipsum dolor sit amet...</p>
+						</article>
+					</code></pre>
+					<pre class="fragment"><code class="html" data-trim data-line-numbers="2-4">
+						<h2 class="title">Title</h2>
+						<svg xmlns="http://www.w3.org/2000/svg">
+							<rect height="100" width="100" stroke="red" fill="#00f"/>
+						</svg>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>CSS</h2>
+					<img src="img/css.gif">
+				</section>
+
+				<section>
+					<h2>CSS</h2>
+					<pre><code class="html" data-trim>
+						<h2 class="title">Title</h2>
+					</code></pre>
+					<pre><code class="css" data-trim>
+						.title {
+							color: #ff0000;
+							font-size: 1.2rem;
+						}
+					</code></pre>
+					<div class="fragment">
+						<h2>=</h2>
+						<pre><code class="html" data-trim>
+							<h2 style="color: #ff0000; font-size: 1.2rem;">Title</h2>
+						</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<iframe height="500" style="width: 100%;" scrolling="no" title="HTML &amp; CSS Unicorn ✨🦄"
+						data-src="//codepen.io/alexalala/embed/xmjRoo/?height=477&theme-id=0&default-tab=result" frameborder="no"
+						allowtransparency="true" allowfullscreen="true">
+						See the Pen <a href='https://codepen.io/alexalala/pen/xmjRoo/'>HTML &amp; CSS Unicorn ✨🦄</a> by Alexandra
+						Moore
+						(<a href='https://codepen.io/alexalala'>@alexalala</a>) on <a href='https://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
+					<h2>JavaScript</h2>
+					<pre><code class="html" data-trim>
+						<button class="special-button">Click me!</button>
+					</code></pre>
+					<pre><code data-trim>
+						const button = document.querySelector('.special-button');
+						button.addEventListener('click', ev => console.log('Hola :)'));
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+						button.style.color = '#ff0000';
+					</code></pre>
+				</section>
+			</section>
+
+			<!-- SVG -->
+			<section>
+				<section>
+					<h2>SVG</h2>
+					<ul class="fragment">
+						<li>Escalable <span>(Retina&trade; Ready)</span></li>
+						<li>Tamaño*</li>
+						<li>Accesible en el DOM</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Tamaño</h2>
+					<div class="comparison">
+						<figure>
+							<img src="img/vr.jpg" alt="Bitmap">
+							<figcaption>JPG (500x500) - 90KB</figcaption>
+						</figure>
+						<figure>
+							<img src="img/vr.svg" alt="SVG">
+							<figcaption>SVG - 15KB</figcaption>
+						</figure>
+					</div>
+				</section>
+
+				<section>
+					<h2>Tamaño</h2>
+					<div class="comparison">
+						<figure>
+							<img src="img/flowers.jpg" alt="Bitmap">
+							<figcaption>JPG (700x500) - 130KB</figcaption>
+						</figure>
+						<figure>
+							<img src="img/flowers.svg" alt="SVG">
+							<figcaption>SVG - 1.1MB 😱</figcaption>
+						</figure>
+					</div>
+				</section>
+
+				<section>
+					<img src="img/flowers-points.png" alt="El Culpable">
+				</section>
+
+				<section>
+					<h2>Tamaño</h2>
+					<ul>
+						<li>El peso lo da la complejidad y no las dimensiones de la imagen</li>
+						<li>Perfecto para iconos, logos y gráficos simples</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Accesible</h2>
+					<pre><code class="html" data-trim>
+						<svg>
+							<rect x="10" y="10" width="30" height="30" fill="transparent"/>
+						
+							<circle cx="25" cy="75" r="20" fill="transparent"/>
+							<ellipse cx="75" cy="75" rx="20" ry="5" fill="transparent"/>
+						
+							<line x1="10" x2="50" y1="110" y2="150" stroke="orange" stroke-width="5"/>
+							<polyline points="60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145" fill="red"/>
+						
+							<polygon points="50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180" stroke="green" fill="transparent" stroke-width="5"/>
+						
+							<path d="M20,230 Q40,205 50,230 T90,230" fill="none" stroke="blue" stroke-width="5"/>
+						</svg>
+					</code></pre>
+				</section>
+			</section>
+
+			<!-- CSS ANIMATIONS -->
+			<section>
+				<section>
+					<h2>Animaciones CSS</h2>
+					<div>
+						<ul>
+							<li class="fragment">Perfecto para animaciones simples</li>
+							<li class="fragment">No necesitas librerias externas</li>
+							<li class="fragment">Buen rendimiento (especialmente si usas propiedades aceleradas por GPU)</li>
+							<li class="fragment">Facilidad para crear animaciones responsivas mediante media queries</li>
+						</ul>
+					</div>
+				</section>
+
+				<section>
+					<h2>Transition</h2>
+					<iframe height="500" style="width: 100%;" scrolling="no" title="Basic CSS Transition"
+						data-src="//codepen.io/glongas/embed/qGyLVJ/?height=400&theme-id=0&default-tab=css,result" frameborder="no"
+						allowtransparency="true" allowfullscreen="true">
+						See the Pen <a href='https://codepen.io/glongas/pen/qGyLVJ/'>Basic CSS Transition</a> by Gabriel Longás
+						(<a href='https://codepen.io/glongas'>@glongas</a>) on <a href='https://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
+					<iframe height="500" style="width: 100%;" scrolling="no" title="&quot;Simple&quot; CSS Buttons"
+						data-src="//codepen.io/DXC/embed/PNyQVK/?height=265&theme-id=0&default-tab=result" frameborder="no"
+						allowtransparency="true" allowfullscreen="true">
+						See the Pen <a href='https://codepen.io/DXC/pen/PNyQVK/'>&quot;Simple&quot; CSS Buttons</a> by Daniel
+						Constance
+						(<a href='https://codepen.io/DXC'>@DXC</a>) on <a href='https://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
+					<h2>Keyframes</h2>
+					<iframe height="500" style="width: 100%;" scrolling="no" title="Simple CSS Animation"
+						data-src="//codepen.io/glongas/embed/wbxRqK/?height=265&theme-id=0&default-tab=css,result" frameborder="no"
+						allowtransparency="true" allowfullscreen="true">
+						See the Pen <a href='https://codepen.io/glongas/pen/wbxRqK/'>Simple CSS Animation</a> by Gabriel Longás
+						(<a href='https://codepen.io/glongas'>@glongas</a>) on <a href='https://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
+					<iframe height="500" style="width: 100%;" scrolling="no" title="Pure CSS Saturn Hula Hooping"
+						data-src="//codepen.io/jcoulterdesign/embed/BrdPaw/?height=265&theme-id=0&default-tab=result"
+						frameborder="no" allowtransparency="true" allowfullscreen="true">
+						See the Pen <a href='https://codepen.io/jcoulterdesign/pen/BrdPaw/'>Pure CSS Saturn Hula Hooping</a> by
+						Jamie Coulter
+						(<a href='https://codepen.io/jcoulterdesign'>@jcoulterdesign</a>) on <a
+							href='https://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+			</section>
+
+			<!-- JS ANIMATIONS -->
+			<section>
+				<section>
+					<h2>Animaciones JS</h2>
+					<div>
+						<ul>
+							<li class="fragment">Para cuando necesitas concatenar varias animaciones</li>
+							<li class="fragment">Librerias que añaden muchas funcionalidades que CSS no tiene</li>
+							<li class="fragment">No te tienes que preocupar de las diferencias entre navegadores</li>
+						</ul>
+					</div>
+				</section>
+
+				<section>
+					<h3>Tweens</h3>
+					<pre><code data-trim>
+							TweenMax.to('.photo', 2, { width: '200px', height: '150px' });
+							// TweenMax.from(...);
+							// TweenMax.fromTo(...);
+							// TweenMax.staggerTo(...);
+							// ...
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Timelines</h3>
+					<pre><code data-trim>
+						const tl = new TimelineMax({ repeat: 2, repeatDelay: 1 });
+						tl.to(element, 1, { left: 100 });
+						tl.to(element, 1, { top: 50 });
+						tl.to(element, 1, { opacity: 0 });
+							
+						// tl.pause();
+						// tl.resume();
+						// tl.seek(1.5);
+						// tl.reverse();
+						// ...
+					</code></pre>
+				</section>
+
+				<section data-background-iframe="https://tympanus.net/Development/LayerMotionSlideshow/"
+					data-background-interactive></section>
+			</section>
+
+			<!-- OPTIMIZACIONES -->
+			<section>
+				<section>
+					<h2>60FPS 😍</h2>
+					<ul class="fragment">
+						<li>Posición</li>
+						<li>Escala</li>
+						<li>Rotación</li>
+						<li>Opacidad</li>
+					</ul>
+					<pre class="fragment"><code class="css" data-trim>
+						.box:hover {
+							transform: translate(25px, 0) scale(1.5) rotate(45deg);
+							opacity: 0.5;
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<img src="img/devtools-waterfall.jpg" alt="Devtools">
+				</section>
+
+				<section data-background-iframe="http://glongas.com/stuff/anim/cross/" data-background-interactive></section>
+			</section>
+
+			<!-- BODYMOVIN -->
+			<section>
+				<section>
+					<h2>Bodymovin 💃</h2>
+					<ul>
+						<li class="fragment">Pros:
+							<ul>
+								<li>Es SVG</li>
+								<li>Illustrator + After Effects</li>
+							</ul>
+						</li>
+						<li class="fragment">Cons:
+							<ul>
+								<li>Es SVG</li>
+								<li>La libreria pesa ~260KB</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<img src="img/lottie.gif" alt="Lottie">
+				</section>
+			</section>
+
+			<!-- INSPIRATION -->
+			<section>
+				<section data-background-iframe="https://tympanus.net/Development/GradientTopographyAnimation/"
+					data-background-interactive></section>
+
+				<section data-background-iframe="https://codepen.io/sdras/pen/gWWQgb" data-background-interactive>
+				</section>
+
+				<section>
+					<h2>Inspiración</h2>
+					<ul>
+						<li><a href="https://www.awwwards.com/">Awwwards</a></li>
+						<li><a href="https://thefwa.com/">The FWA</a></li>
+						<li><a href="https://dribbble.com/">Dribbble</a></li>
+						<li><a href="https://uimovement.com/">UI Movement</a></li>
+					</ul>
+				</section>
+			</section>
+
+			<!-- QA -->
+			<section>
+				<h2>QA</h2>
+			</section>
+
+			<!-- END -->
+			<section>
+				<h2>Muchas gracias 😁</h2>
+			</section>
 		</div>
+	</div>
 
-		<script src="js/reveal.js"></script>
+	<script src="js/zdog.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+	<script src="js/reveal.js"></script>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true }
+			]
+		});
+	</script>
+</body>
+
 </html>
